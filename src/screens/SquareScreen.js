@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import ColorCounter from '../components/ColorCounter';
 
-
+const COLOR_INCREMENT = 15;
 
 
 const SquareScreen = () => {
@@ -14,11 +14,27 @@ const SquareScreen = () => {
   return ( 
     <View>
       <ColorCounter 
-      onIncrease={() => setRed(red + 1)} 
-      onDecrease={() => setRed(red - 1)}
-      color="Red" />
-      <ColorCounter color="Blue" />
-      <ColorCounter color="Green" />
+      onIncrease={() => setRed(red + COLOR_INCREMENT)} 
+      onDecrease={() => setRed(red - COLOR_INCREMENT)}
+      color="Red" 
+      />
+      <ColorCounter 
+      onIncrease={() => setBlue(blue + COLOR_INCREMENT)}
+      onDecrease={() => setBlue(blue - COLOR_INCREMENT)}
+      color="Blue"
+      />
+      <ColorCounter 
+      onIncrease={() => setGreen(green + COLOR_INCREMENT)}
+      onDecrease={() => setGreen(green - COLOR_INCREMENT)}
+      color="Green" 
+      />
+      <View 
+      style={{ 
+        height: 150, 
+        width: 150, 
+        backgroundColor: `rgb(${red}, ${green}, ${blue})`
+         }} 
+        />
     </View>
   )
 }
